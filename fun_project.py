@@ -103,16 +103,11 @@ while True:
             # find distance between index and thumb
             length, img, lineinfo = detector.findDistance(4, 8, img)
            
-
             #   20 350
             #  -65  0
             vol = np.interp(length,[50, 300], [minVol, maxVol])
             #print(vol)
             volume.SetMasterVolumeLevel(vol, None)
-            
-            # which finger is up?
-            
-            
             
             if length < 22:
                 cv2.circle(img, (lineinfo[4], lineinfo[5]), int(7), (0, 255, 255), cv2.FILLED)
